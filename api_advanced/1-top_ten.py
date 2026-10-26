@@ -17,6 +17,8 @@ def top_ten(subreddit):
         data = None
     if data is None:
         print(None)
+        print("DEBUG", type(response), getattr(response, "status_code", None),
+              str(getattr(response, "text", ""))[:150])
         return
     for post in data.get("children", []):
         print(post.get("data", {}).get("title"))
